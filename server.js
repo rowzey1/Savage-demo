@@ -21,7 +21,7 @@ app.listen(3000, () => {
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-app.use(express.static('public'))
+app.use(express.static('public')) 
 
 app.get('/', (req, res) => {
   db.collection('messages').find().toArray((err, result) => {
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/messages', (req, res) => {
-  db.collection('messages').insertOne({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0}, (err, result) => {
+  db.collection('messages').insertOne({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0}, (err, result) => { 
     if (err) return console.log(err)
     console.log('saved to database')
     res.redirect('/')
@@ -39,10 +39,24 @@ app.post('/messages', (req, res) => {
 })
 
 app.put('/messages', (req, res) => {
+  if(req.body.thumbUp !=undefined){
+    db.collection('messages')
+    .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
+      $set: {
+        thumbUp:req.body.thumbUp + 1,
+      }
+    }, {
+      sort: {_id: -1},
+      upsert: true
+    }, (err, result) => {
+      if (err) return res.send(err)
+      res.send(result)
+    })
+  }else if(req.body.thumbDown !=undefined){
   db.collection('messages')
   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
     $set: {
-      thumbUp:req.body.thumbUp + 1
+      thumbDown:req.body.thumbDown + 1
     }
   }, {
     sort: {_id: -1},
@@ -51,6 +65,7 @@ app.put('/messages', (req, res) => {
     if (err) return res.send(err)
     res.send(result)
   })
+}
 })
 
 app.delete('/messages', (req, res) => {
