@@ -30,7 +30,7 @@ Array.from(thumbDown).forEach(function(element) {
   element.addEventListener('click', function(){
     const name = this.parentNode.parentNode.childNodes[1].innerText
     const msg = this.parentNode.parentNode.childNodes[3].innerText
-    const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+    const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[9].innerText)
     fetch('messages', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
