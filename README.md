@@ -1,11 +1,31 @@
 ![21 Savage](public/21savage.jpg)
 
-## Installation
+## Fullstack express app with Message Board App
 
-1. Clone repo
-2. run `npm install`
+A dynamic message board application that allows users to interact with posts through likes, dislikes, and deletion capabilities.
 
-## Usage
+## Features
 
-1. run `npm run savage`
-2. Navigate to `localhost:3000`
+- **Post Messages**: Users can create and share messages on the board
+- **Interactive Feedback**: 
+  - 👍 Like posts with thumbs up
+  - 👎 Dislike posts with thumbs down
+  - Messages are sorted in descending order based on likes
+  - Each interaction updates in real-time
+  
+- **Message Management**: 
+  - Users can delete their own messages
+
+## Technical Stack
+
+- **Frontend**: JavaScript, HTML, CSS
+- **Backend**: Node.js
+- **Database**: MongoDB
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up your MongoDB connection
+4. Run the server: `node server.js`
+5. Visit `http://localhost:3000` in your browser
