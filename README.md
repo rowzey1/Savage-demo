@@ -1,5 +1,4 @@
-
-![21savage](https://github.com/user-attachments/assets/d11da9b9-b032-4350-a411-0d4fcbfbbef6)
+![Screenshot 2024-11-22 at 2 57 10 PM](https://github.com/user-attachments/assets/c07a74e9-fe1d-456c-8f2a-a26f1253a462)
 
 ## Fullstack express app with Message Board App
 
@@ -30,3 +29,4 @@ A dynamic message board application that allows users to interact with posts thr
 3. Set up your MongoDB connection
 4. Run the server: `node server.js`
 5. Visit `http://localhost:3000` in your browser
+
